@@ -2,13 +2,16 @@ package com.tothenew.beach.quizapp.controller;
 
 import com.tothenew.beach.quizapp.exception.NoQuestionFoundException;
 import com.tothenew.beach.quizapp.model.Question;
+import com.tothenew.beach.quizapp.model.QuestionWrapper;
 import com.tothenew.beach.quizapp.service.QuestionService;
 import com.tothenew.beach.quizapp.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+//import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "question")
@@ -41,9 +44,9 @@ public class QuestionController {
         return new ResponseEntity<>(questionService.getAllQuestions(), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/createQuiz")
-    public ResponseEntity<?> createQuiz(@RequestParam String category, @RequestParam int numQ, @RequestParam String title) {
-        return new ResponseEntity<>(quizService.createQuiz(category, numQ, title), HttpStatus.CREATED);
+    @DeleteMapping(value = "/delete/{quesId}")
+    public ResponseEntity<?> deleteQuestionById(@PathVariable String quesId) {
+        questionService.deleteQuestionById(quesId);
+        return new ResponseEntity<>("Question deleted successfully", HttpStatus.OK);
     }
-
 }

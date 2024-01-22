@@ -32,4 +32,9 @@ public class QuestionServiceImpl2 implements QuestionService {
     public List<Question> getAllQuestions() {
         return null;
     }
+
+    @Override
+    public void deleteQuestionById(String quesId) {
+
+    }
 }

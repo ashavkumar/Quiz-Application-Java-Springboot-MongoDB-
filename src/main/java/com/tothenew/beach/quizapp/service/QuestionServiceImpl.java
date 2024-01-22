@@ -35,11 +35,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Question getQuestionById(String qid) throws NoQuestionFoundException {
-        try {
-            return questionRepository.findById(qid).get();
-        } catch (Exception ex) {
-            throw new NoQuestionFoundException();
-        }
+        return questionRepository.findById(qid).orElseThrow(() -> new NoQuestionFoundException());
     }
 
     @Override
@@ -77,5 +73,9 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public List<Question> getAllQuestions() {
         return questionRepository.findAll();
+    }
+
+    public void deleteQuestionById(String quesId) {
+        questionRepository.deleteById(quesId);
     }
 }

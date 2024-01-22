@@ -16,4 +16,6 @@ public interface QuestionService {
     public List<Question> findRandomQuestionByCategory(String category, int numQ);
 
     public List<Question> getAllQuestions();
+
+    public void deleteQuestionById(String quesId);
 }
