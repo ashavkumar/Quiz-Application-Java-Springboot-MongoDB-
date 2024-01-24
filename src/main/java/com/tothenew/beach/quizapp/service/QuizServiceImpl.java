@@ -46,7 +46,7 @@ public class QuizServiceImpl implements QuizService {
         int right = 0;
         int i = 0;
         for (Response response : responseList) {
-            if (response.getResponses().equals(questionList.get(i).getRightAnswer())) {
+            if (response.getResponse().equals(questionList.get(i).getRightAnswer())) {
                 right++;
             }
             i++;

@@ -3,14 +3,14 @@ package com.tothenew.beach.quizapp.model;
 public class Response {
 
     private int id;
-    private String responses;
+    private String response;
 
     public Response() {
     }
 
-    public Response(int id, String responses) {
+    public Response(int id, String response) {
         this.id = id;
-        this.responses = responses;
+        this.response = response;
     }
 
     public int getId() {
@@ -21,11 +21,11 @@ public class Response {
         this.id = id;
     }
 
-    public String getResponses() {
-        return responses;
+    public String getResponse() {
+        return response;
     }
 
-    public void setResponses(String responses) {
-        this.responses = responses;
+    public void setResponse(String response) {
+        this.response = response;
     }
 }
